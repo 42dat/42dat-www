@@ -5,9 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>42DAT</title>
 <style>
-  html, body { height: 100%; margin: 0; background: #1a1a1a; }
+  :root{
+    --bg:#0b0d12; --card:#12151c; --line:#232733; --text:#f1f2f5; --sub:#9aa1b0; --gold:#c9a25c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;}
+  a{color:inherit; text-decoration:none;}
+
+  header{position:sticky; top:0; z-index:20; background:rgba(11,13,18,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 20px;}
+  .logo{font-weight:800; font-size:18px; letter-spacing:1px;}
+  .logo span{color:var(--gold);}
+  .navlinks{display:flex; gap:28px; font-size:14px; font-weight:600; color:var(--sub);}
+  .navlinks a:hover{color:var(--text);}
+
+  .hero{max-width:1080px; margin:0 auto; padding:100px 20px 70px; text-align:center;}
+  .hero .kicker{font-size:12px; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:14px;}
+  .hero h1{font-size:38px; font-weight:800; margin:0 0 14px; letter-spacing:-.5px;}
+  .hero p{color:var(--sub); font-size:15px; max-width:520px; margin:0 auto;}
+
+  section.block{max-width:1080px; margin:0 auto; padding:60px 20px; border-top:1px solid var(--line);}
+  section.block h2{font-size:22px; font-weight:800; margin:0 0 8px;}
+  section.block .desc{color:var(--sub); font-size:14px; margin-bottom:28px;}
+
+  .cardgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px;}
+  .card b{display:block; font-size:15px; margin-bottom:6px;}
+  .card span{font-size:13px; color:var(--sub); line-height:1.5;}
+  .soon{display:inline-block; margin-top:12px; font-size:11px; font-weight:700; color:var(--gold); border:1px solid var(--gold); border-radius:20px; padding:3px 10px;}
+
+  .support{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:36px; text-align:center;}
+  .support b{display:block; font-size:17px; margin-bottom:8px;}
+  .support span{color:var(--sub); font-size:14px; display:block; margin-bottom:20px;}
+  .btn{display:inline-block; background:var(--gold); color:#1a1408; font-weight:800; font-size:14px; padding:12px 28px; border-radius:30px; cursor:not-allowed; opacity:.55;}
+
+  .contact{display:flex; flex-wrap:wrap; gap:16px;}
+  .contact .card{flex:1; min-width:200px;}
+
+  .adslot{max-width:1080px; margin:0 auto; padding:0 20px 60px;}
+  .adslot .box{border:1px dashed var(--line); border-radius:14px; padding:40px; text-align:center; color:var(--sub); font-size:12px;}
+
+  footer{border-top:1px solid var(--line); padding:30px 20px; text-align:center; color:var(--sub); font-size:12px;}
 </style>
 </head>
 <body>
+
+<header>
+  <div class="nav">
+    <div class="logo">42<span>.</span>DAT</div>
+    <div class="navlinks">
+      <a href="#program">프로그램</a>
+      <a href="#plugin">편집플러그인</a>
+      <a href="#music">음악</a>
+      <a href="#contact">문의</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="kicker">CREATIVE · MEDIA · EXPERIENCE</div>
+  <h1>We Create Experiences.</h1>
+  <p>42DAT은 영상 제작과 도구 개발을 함께하는 크리에이티브 스튜디오입니다.</p>
+</div>
+
+<section class="block" id="program">
+  <h2>🧰 프로그램</h2>
+  <div class="desc">42DAT이 만든 방송·편집 보조 도구</div>
+  <div class="cardgrid">
+    <div class="card"><b>라이브덱 Live Deck</b><span>SOOP · 치지직 합방 멀티뷰 데스크톱 앱</span><div class="soon">준비중</div></div>
+    <div class="card"><b>스트리머 매니저</b><span>치지직 · SOOP 방송 관리 도구</span><div class="soon">준비중</div></div>
+  </div>
+</section>
+
+<section class="block" id="plugin">
+  <h2>🧩 편집플러그인</h2>
+  <div class="desc">프리미어 프로용 원클릭 편집 확장 프로그램</div>
+  <div class="cardgrid">
+    <div class="card"><b>PIKI Sound</b><span>효과음 원클릭 삽입</span><div class="soon">준비중</div></div>
+    <div class="card"><b>42Dat Transitions</b><span>트랜지션 원클릭 삽입</span><div class="soon">준비중</div></div>
+  </div>
+</section>
+
+<section class="block" id="music">
+  <h2>🎵 음악</h2>
+  <div class="desc">42DAT이 제작·큐레이션한 배경음악 · 효과음</div>
+  <div class="cardgrid">
+    <div class="card"><b>자료실</b><span>영상 제작에 쓸 수 있는 음악·효과음 모음</span><div class="soon">준비중</div></div>
+  </div>
+</section>
+
+<div class="adslot">
+  <div class="box">광고 영역 (Google AdSense) — 게시자 ID 등록 후 표시됩니다</div>
+</div>
+
+<section class="block" id="support">
+  <h2>💛 후원</h2>
+  <div class="support">
+    <b>42DAT을 응원해주세요</b>
+    <span>후원 방법은 준비 중입니다. 곧 안내해드릴게요.</span>
+    <span class="btn">후원하기 (준비중)</span>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <h2>✉️ 문의</h2>
+  <div class="desc">협업 · 제작 문의는 아래로 연락해주세요</div>
+  <div class="contact">
+    <div class="card"><b>이메일</b><span>준비중</span></div>
+    <div class="card"><b>SNS</b><span>준비중</span></div>
+  </div>
+</section>
+
+<footer>© 2026 42DAT. All rights reserved.</footer>
+
 </body>
 </html>
