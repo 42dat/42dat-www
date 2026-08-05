@@ -34,6 +34,14 @@
   .card span{font-size:13px; color:var(--sub); line-height:1.5;}
   .soon{display:inline-block; margin-top:12px; font-size:11px; font-weight:700; color:var(--gold); border:1px solid var(--gold); border-radius:20px; padding:3px 10px;}
 
+  .biggrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;}
+  .bigcard{display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:36px 20px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;}
+  .bigcard:hover{transform:translateY(-3px); border-color:var(--gold); background:#171b24;}
+  .bigcard .ico{font-size:34px; display:block; margin-bottom:16px;}
+  .bigcard b{display:block; font-size:16px; font-weight:800; margin-bottom:6px;}
+  .bigcard span{display:block; font-size:12.5px; color:var(--sub);}
+  .bigcard .soon{margin-top:14px;}
+
   .support{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:36px; text-align:center;}
   .support b{display:block; font-size:17px; margin-bottom:8px;}
   .support span{color:var(--sub); font-size:14px; display:block; margin-bottom:20px;}
@@ -71,26 +79,26 @@
 <section class="block" id="program">
   <h2>🧰 프로그램</h2>
   <div class="desc">42DAT이 만든 방송·편집 보조 도구</div>
-  <div class="cardgrid">
-    <div class="card"><b>라이브덱 Live Deck</b><span>SOOP · 치지직 합방 멀티뷰 데스크톱 앱</span><div class="soon">준비중</div></div>
-    <div class="card"><b>스트리머 매니저</b><span>치지직 · SOOP 방송 관리 도구</span><div class="soon">준비중</div></div>
+  <div class="biggrid">
+    <a class="bigcard" href="#program"><span class="ico">🎛️</span><b>라이브덱 Live Deck</b><span>SOOP · 치지직 합방 멀티뷰 데스크톱 앱</span><div class="soon">준비중</div></a>
+    <a class="bigcard" href="#program"><span class="ico">📡</span><b>스트리머 매니저</b><span>치지직 · SOOP 방송 관리 도구</span><div class="soon">준비중</div></a>
   </div>
 </section>
 
 <section class="block" id="plugin">
   <h2>🧩 편집플러그인</h2>
   <div class="desc">프리미어 프로용 원클릭 편집 확장 프로그램</div>
-  <div class="cardgrid">
-    <div class="card"><b>PIKI Sound</b><span>효과음 원클릭 삽입</span><div class="soon">준비중</div></div>
-    <div class="card"><b>42Dat Transitions</b><span>트랜지션 원클릭 삽입</span><div class="soon">준비중</div></div>
+  <div class="biggrid">
+    <a class="bigcard" href="#plugin"><span class="ico">🎵</span><b>PIKI Sound</b><span>효과음 원클릭 삽입</span><div class="soon">준비중</div></a>
+    <a class="bigcard" href="#plugin"><span class="ico">🧩</span><b>42Dat Transitions</b><span>트랜지션 원클릭 삽입</span><div class="soon">준비중</div></a>
   </div>
 </section>
 
 <section class="block" id="music">
   <h2>🎵 음악</h2>
   <div class="desc">42DAT이 제작·큐레이션한 배경음악 · 효과음</div>
-  <div class="cardgrid">
-    <div class="card"><b>자료실</b><span>영상 제작에 쓸 수 있는 음악·효과음 모음</span><div class="soon">준비중</div></div>
+  <div class="biggrid">
+    <a class="bigcard" href="#music"><span class="ico">🎧</span><b>자료실</b><span>영상 제작에 쓸 수 있는 음악·효과음 모음</span><div class="soon">준비중</div></a>
   </div>
 </section>
 
