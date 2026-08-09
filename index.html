@@ -16,9 +16,6 @@
   .nav{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 20px;}
   .logo{font-weight:800; font-size:18px; letter-spacing:1px;}
   .logo span{color:var(--gold);}
-  .navlinks{display:flex; gap:28px; font-size:14px; font-weight:600; color:var(--sub);}
-  .navlinks a:hover{color:var(--text);}
-
   .hero{max-width:1080px; margin:0 auto; padding:90px 20px 20px; text-align:center;}
   .hero .kicker{font-size:12px; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:14px;}
   .hero h1{font-size:38px; font-weight:800; margin:0 0 14px; letter-spacing:-.5px;}
@@ -32,36 +29,6 @@
   .maintile .ico{font-size:36px;}
   .maintile b{font-size:16px; font-weight:800;}
 
-  section.block{max-width:1080px; margin:0 auto; padding:60px 20px; border-top:1px solid var(--line);}
-  section.block h2{font-size:22px; font-weight:800; margin:0 0 8px;}
-  section.block .desc{color:var(--sub); font-size:14px; margin-bottom:28px;}
-
-  .cardgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px;}
-  .card b{display:block; font-size:15px; margin-bottom:6px;}
-  .card span{font-size:13px; color:var(--sub); line-height:1.5;}
-  .soon{display:inline-block; margin-top:12px; font-size:11px; font-weight:700; color:var(--gold); border:1px solid var(--gold); border-radius:20px; padding:3px 10px;}
-
-  .biggrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;}
-  .bigcard{display:block; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:36px 20px; text-align:center; cursor:pointer; transition:transform .15s ease, border-color .15s ease, background .15s ease;}
-  .bigcard:hover{transform:translateY(-3px); border-color:var(--gold); background:#171b24;}
-  .bigcard .ico{font-size:34px; display:block; margin-bottom:16px;}
-  .bigcard b{display:block; font-size:16px; font-weight:800; margin-bottom:6px;}
-  .bigcard span{display:block; font-size:12.5px; color:var(--sub);}
-  .bigcard .soon{margin-top:14px;}
-
-  .support{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:36px; text-align:center;}
-  .support b{display:block; font-size:17px; margin-bottom:8px;}
-  .support span{color:var(--sub); font-size:14px; display:block; margin-bottom:20px;}
-  .btn{display:inline-block; background:var(--gold); color:#1a1408; font-weight:800; font-size:14px; padding:12px 28px; border-radius:30px; cursor:not-allowed; opacity:.55;}
-
-  .contact{display:flex; flex-wrap:wrap; gap:16px;}
-  .contact .card{flex:1; min-width:200px;}
-
-  .adslot{max-width:1080px; margin:0 auto; padding:0 20px 60px;}
-  .adslot .box{border:1px dashed var(--line); border-radius:14px; padding:40px; text-align:center; color:var(--sub); font-size:12px;}
-
-  footer{border-top:1px solid var(--line); padding:30px 20px; text-align:center; color:var(--sub); font-size:12px;}
 </style>
 </head>
 <body>
@@ -69,12 +36,6 @@
 <header>
   <div class="nav">
     <div class="logo">42<span>.</span>DAT</div>
-    <div class="navlinks">
-      <a href="#program">프로그램</a>
-      <a href="#plugin">편집플러그인</a>
-      <a href="#music">음악</a>
-      <a href="#contact">문의</a>
-    </div>
   </div>
 </header>
 
@@ -85,61 +46,11 @@
 </div>
 
 <div class="maintiles">
-  <a class="maintile" href="#program"><span class="ico">🧰</span><b>프로그램</b></a>
-  <a class="maintile" href="#plugin"><span class="ico">🧩</span><b>편집플러그인</b></a>
-  <a class="maintile" href="#music"><span class="ico">🎵</span><b>음악</b></a>
-  <a class="maintile" href="#contact"><span class="ico">✉️</span><b>문의</b></a>
+  <a class="maintile" href="/program-livedeck.html"><span class="ico">🧰</span><b>프로그램</b></a>
+  <a class="maintile" href="/plugin-pikisound.html"><span class="ico">🧩</span><b>편집플러그인</b></a>
+  <a class="maintile" href="/music-archive.html"><span class="ico">🎵</span><b>음악</b></a>
+  <a class="maintile" href="mailto:contact@42dat.com"><span class="ico">✉️</span><b>문의</b></a>
 </div>
-
-<section class="block" id="program">
-  <h2>🧰 프로그램</h2>
-  <div class="desc">42DAT이 만든 방송·편집 보조 도구</div>
-  <div class="biggrid">
-    <a class="bigcard" href="/program-livedeck.html"><span class="ico">🎛️</span><b>라이브덱 Live Deck</b><span>SOOP · 치지직 합방 멀티뷰 데스크톱 앱</span></a>
-    <a class="bigcard" href="/program-streamer.html"><span class="ico">📡</span><b>스트리머 매니저</b><span>치지직 · SOOP 방송 관리 도구</span></a>
-  </div>
-</section>
-
-<section class="block" id="plugin">
-  <h2>🧩 편집플러그인</h2>
-  <div class="desc">프리미어 프로용 원클릭 편집 확장 프로그램</div>
-  <div class="biggrid">
-    <a class="bigcard" href="/plugin-pikisound.html"><span class="ico">🎵</span><b>PIKI Sound</b><span>효과음 원클릭 삽입</span></a>
-    <a class="bigcard" href="/plugin-transitions.html"><span class="ico">🧩</span><b>42Dat Transitions</b><span>트랜지션 원클릭 삽입</span></a>
-  </div>
-</section>
-
-<section class="block" id="music">
-  <h2>🎵 음악</h2>
-  <div class="desc">42DAT이 제작·큐레이션한 배경음악 · 효과음</div>
-  <div class="biggrid">
-    <a class="bigcard" href="/music-archive.html"><span class="ico">🎧</span><b>자료실</b><span>영상 제작에 쓸 수 있는 음악·효과음 모음</span></a>
-  </div>
-</section>
-
-<div class="adslot">
-  <div class="box">광고 영역 (Google AdSense) — 게시자 ID 등록 후 표시됩니다</div>
-</div>
-
-<section class="block" id="support">
-  <h2>💛 후원</h2>
-  <div class="support">
-    <b>42DAT을 응원해주세요</b>
-    <span>후원 방법은 준비 중입니다. 곧 안내해드릴게요.</span>
-    <span class="btn">후원하기 (준비중)</span>
-  </div>
-</section>
-
-<section class="block" id="contact">
-  <h2>✉️ 문의</h2>
-  <div class="desc">협업 · 제작 문의는 아래로 연락해주세요</div>
-  <div class="contact">
-    <div class="card"><b>이메일</b><span>준비중</span></div>
-    <div class="card"><b>SNS</b><span>준비중</span></div>
-  </div>
-</section>
-
-<footer>© 2026 42DAT. All rights reserved.</footer>
 
 </body>
 </html>
