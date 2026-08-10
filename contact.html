@@ -116,11 +116,16 @@
         <div class="lb">📎 기획서 / 레퍼런스 / 이미지 첨부</div>
         <div class="fn" id="cFileName"></div>
       </label>
-      <div class="filehint">※ 첨부 파일은 이 페이지에서 자동 전송되지 않아요. 아래 버튼을 누르면 열리는 메일 화면에 직접 첨부해주세요.</div>
+      <div class="filehint">※ 첨부파일은 아직 자동 전송을 지원하지 않아요. 구글드라이브 등 파일 링크를 문의 내용에 남겨주세요.</div>
     </div>
 
-    <button type="submit" class="sendbtn">문의 보내기</button>
+    <button type="submit" class="sendbtn" id="cSendBtn">문의 보내기</button>
   </form>
+  <div id="cDone" style="display:none; text-align:center; padding:40px 0;">
+    <div style="font-size:40px; margin-bottom:14px;">✅</div>
+    <div style="font-size:17px; font-weight:800; margin-bottom:8px;">문의가 접수되었어요</div>
+    <div style="color:var(--sub); font-size:13.5px;">확인 후 남겨주신 이메일로 답변드릴게요.</div>
+  </div>
 </div>
 
 <footer>© 2026 42DAT. All rights reserved.</footer>
@@ -135,7 +140,7 @@
     document.getElementById('cFileName').textContent = names;
   };
 
-  document.getElementById('cForm').addEventListener('submit', function(e){
+  document.getElementById('cForm').addEventListener('submit', async function(e){
     e.preventDefault();
     const name = document.getElementById('cName').value.trim();
     const phone = document.getElementById('cPhone').value.trim();
@@ -144,19 +149,22 @@
     const body = document.getElementById('cBody').value.trim();
     if(!name || !email || !title || !body){ alert('필수 항목(*)을 모두 입력해주세요.'); return; }
 
-    const subject = `[${curType}] ${title}`;
-    const lines = [
-      `문의 유형: ${curType}`,
-      `이름/업체명: ${name}`,
-      `연락처: ${phone || '-'}`,
-      `이메일: ${email}`,
-      '',
-      '문의 내용:',
-      body
-    ].join('\n');
-
-    const mailto = `mailto:contact@42dat.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
-    window.location.href = mailto;
+    const btn = document.getElementById('cSendBtn');
+    btn.disabled = true; btn.textContent = '보내는 중...';
+    try{
+      const r = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: curType, name, phone, email, title, body })
+      });
+      const j = await r.json();
+      if(!j.ok){ alert(j.error || '전송에 실패했어요. 다시 시도해주세요.'); btn.disabled = false; btn.textContent = '문의 보내기'; return; }
+      document.getElementById('cForm').style.display = 'none';
+      document.getElementById('cDone').style.display = 'block';
+    }catch(err){
+      alert('전송에 실패했어요. 네트워크를 확인해주세요.');
+      btn.disabled = false; btn.textContent = '문의 보내기';
+    }
   });
 </script>
 
