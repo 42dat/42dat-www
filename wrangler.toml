@@ -8,4 +8,4 @@ binding = "ASSETS"
 
 [[kv_namespaces]]
 binding = "INQUIRIES"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "374bcee179da499eabde46c54420e67b"
