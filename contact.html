@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>문의 · 42DAT</title>
+<style>
+  :root{
+    --bg:#0b0d12; --card:#12151c; --line:#232733; --text:#f1f2f5; --sub:#9aa1b0; --gold:#c9a25c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;}
+  a{color:inherit; text-decoration:none;}
+
+  header{position:sticky; top:0; z-index:20; background:rgba(11,13,18,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 20px;}
+  .logo{font-weight:800; font-size:18px; letter-spacing:1px;}
+  .logo span{color:var(--gold);}
+  .back{font-size:13px; font-weight:600; color:var(--sub);}
+  .back:hover{color:var(--text);}
+
+  .wrap{max-width:640px; margin:0 auto; padding:60px 20px 100px;}
+  .ttl{font-size:26px; font-weight:800; margin:0 0 8px;}
+  .sub{color:var(--sub); font-size:14px; margin:0 0 34px;}
+
+  .field{margin-bottom:26px;}
+  .field label{display:block; font-size:13.5px; font-weight:700; margin-bottom:10px;}
+  .field label .req{color:var(--gold); margin-left:3px;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{background:var(--card); border:1px solid var(--line); color:var(--sub); font-size:13px; font-weight:600; padding:9px 16px; border-radius:20px; cursor:pointer; transition:.15s;}
+  .chip:hover{border-color:var(--gold); color:var(--text);}
+  .chip.on{background:var(--gold); border-color:var(--gold); color:#1a1408;}
+
+  input[type=text], input[type=email], textarea{
+    width:100%; background:var(--card); border:1px solid var(--line); border-radius:10px; color:var(--text);
+    font-family:inherit; font-size:14px; padding:13px 15px; outline:none; transition:border-color .15s;
+  }
+  input::placeholder, textarea::placeholder{color:#5c6270;}
+  input:focus, textarea:focus{border-color:var(--gold);}
+  textarea{min-height:160px; line-height:1.6; resize:vertical;}
+
+  .filebox{border:1px dashed var(--line); border-radius:10px; padding:20px; text-align:center; cursor:pointer; transition:.15s;}
+  .filebox:hover{border-color:var(--gold);}
+  .filebox input{display:none;}
+  .filebox .lb{font-size:13px; color:var(--sub);}
+  .filebox .fn{font-size:12.5px; color:var(--gold); margin-top:8px; word-break:break-all;}
+  .filehint{font-size:11.5px; color:#5c6270; margin-top:8px;}
+
+  .sendbtn{width:100%; background:var(--gold); color:#1a1408; font-weight:800; font-size:15px; border:none; border-radius:12px; padding:16px; cursor:pointer; transition:.15s;}
+  .sendbtn:hover{opacity:.9;}
+
+  footer{border-top:1px solid var(--line); padding:30px 20px; text-align:center; color:var(--sub); font-size:12px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="/">42<span>.</span>DAT</a>
+    <a class="back" href="/">‹ 홈으로</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ttl">✉️ 문의하기</div>
+  <div class="sub">아래 내용을 작성해 보내주시면 확인 후 이메일로 답변드립니다.</div>
+
+  <form id="cForm">
+    <div class="field">
+      <label>문의 유형<span class="req">*</span></label>
+      <div class="chips" id="typeChips">
+        <button type="button" class="chip on" data-t="영상 제작">영상 제작</button>
+        <button type="button" class="chip" data-t="프로그램/툴">프로그램/툴</button>
+        <button type="button" class="chip" data-t="협업 제안">협업 제안</button>
+        <button type="button" class="chip" data-t="견적 문의">견적 문의</button>
+        <button type="button" class="chip" data-t="기타">기타</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>이름 / 업체명<span class="req">*</span></label>
+      <input type="text" id="cName" placeholder="홍길동 / 00스튜디오" required>
+    </div>
+
+    <div class="field">
+      <label>연락처</label>
+      <input type="text" id="cPhone" placeholder="010-0000-0000">
+    </div>
+
+    <div class="field">
+      <label>이메일<span class="req">*</span></label>
+      <input type="email" id="cEmail" placeholder="example@email.com" required>
+    </div>
+
+    <div class="field">
+      <label>문의 제목<span class="req">*</span></label>
+      <input type="text" id="cTitle" placeholder="예) LCK 리뷰 채널 실시간 녹화 프로그램 문의" required>
+    </div>
+
+    <div class="field">
+      <label>문의 내용<span class="req">*</span></label>
+      <textarea id="cBody" required placeholder="문의하실 내용을 자유롭게 작성해주세요.
+
+예)
+- 필요한 작업
+- 사용 목적
+- 예상 일정
+- 참고 자료"></textarea>
+    </div>
+
+    <div class="field">
+      <label>파일 첨부</label>
+      <label class="filebox" for="cFile">
+        <input type="file" id="cFile" multiple>
+        <div class="lb">📎 기획서 / 레퍼런스 / 이미지 첨부</div>
+        <div class="fn" id="cFileName"></div>
+      </label>
+      <div class="filehint">※ 첨부 파일은 이 페이지에서 자동 전송되지 않아요. 아래 버튼을 누르면 열리는 메일 화면에 직접 첨부해주세요.</div>
+    </div>
+
+    <button type="submit" class="sendbtn">문의 보내기</button>
+  </form>
+</div>
+
+<footer>© 2026 42DAT. All rights reserved.</footer>
+
+<script>
+  const chips = document.querySelectorAll('#typeChips .chip');
+  let curType = chips[0].dataset.t;
+  chips.forEach(c => c.onclick = () => { chips.forEach(x => x.classList.remove('on')); c.classList.add('on'); curType = c.dataset.t; });
+
+  document.getElementById('cFile').onchange = function(){
+    const names = Array.from(this.files).map(f => f.name).join(', ');
+    document.getElementById('cFileName').textContent = names;
+  };
+
+  document.getElementById('cForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cName').value.trim();
+    const phone = document.getElementById('cPhone').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const title = document.getElementById('cTitle').value.trim();
+    const body = document.getElementById('cBody').value.trim();
+    if(!name || !email || !title || !body){ alert('필수 항목(*)을 모두 입력해주세요.'); return; }
+
+    const subject = `[${curType}] ${title}`;
+    const lines = [
+      `문의 유형: ${curType}`,
+      `이름/업체명: ${name}`,
+      `연락처: ${phone || '-'}`,
+      `이메일: ${email}`,
+      '',
+      '문의 내용:',
+      body
+    ].join('\n');
+
+    const mailto = `mailto:contact@42dat.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+    window.location.href = mailto;
+  });
+</script>
+
+</body>
+</html>
